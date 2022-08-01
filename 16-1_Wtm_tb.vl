@@ -1,0 +1,21 @@
+`include "16-1_wtm.vl"  
+
+module tb();
+    reg [15:0] A;
+    reg [15:0] B;
+    
+    wire [3:0] prod;
+    integer i,j,error;
+    
+    Wtm w1(prod,A,B); 
+
+    initial begin
+        $dumpfile("16-1_wtm_tb.vcd");
+        $dumpvars(0,tb);
+        A = 16'b1111111111111111;
+        B = 16'b1111010101010101;
+        #10;
+        $display("%b",prod);
+        $display("test compelte");
+    end
+endmodule
